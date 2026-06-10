@@ -42,21 +42,15 @@ body::before {
 }
 
 #wrap { display:flex; justify-content:center; min-height:100vh; position:relative; z-index:1; flex-direction:column; align-items:center; }
-
 #app { width:100%; max-width:430px; min-height:100vh; display:flex; flex-direction:column; background:transparent; }
 
-/* HEADER — plus compact */
 .hdr {
   background:rgba(255,255,255,0.78); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%);
   padding:8px 14px 8px; border-bottom:1px solid var(--sep);
   display:flex; align-items:center; justify-content:space-between;
   position:sticky; top:0; z-index:50;
 }
-
-/* LOGO — plus petit */
 .logo { height:30px; max-width:130px; object-fit:contain; }
-
-/* BADGE — plus compact */
 .badge {
   background:linear-gradient(135deg,rgba(255,59,48,0.15),rgba(255,59,48,0.08));
   color:var(--danger); font-size:10px; font-weight:800; letter-spacing:.02em;
@@ -65,24 +59,19 @@ body::before {
 }
 .badge.on { display:block; animation:badgePop .3s cubic-bezier(.34,1.56,.64,1); }
 
-/* TABS — collés au header */
 .tabs {
   display:flex; background:rgba(255,255,255,0.7); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
   border-bottom:1px solid var(--sep); padding:0 8px; gap:2px;
   position:sticky; top:47px; z-index:49;
 }
-
 .tab { flex:1; padding:8px 4px 9px; text-align:center; font-size:12px; font-weight:700; color:var(--label3); cursor:pointer; position:relative; transition:color .2s ease; user-select:none; -webkit-tap-highlight-color:transparent; }
 .tab.active { color:var(--accent); }
 .tab.active::after { content:''; position:absolute; bottom:-1px; left:20%; right:20%; height:2px; background:var(--accent); border-radius:2px 2px 0 0; animation:tabSlide .22s ease; }
 
-/* CONTENT */
 #content { flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch; padding:10px 10px 24px; }
 
-/* SLABEL — texte tronqué corrigé */
 .slabel { font-size:10px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--label3); padding:4px 2px 8px; white-space:nowrap; overflow:visible; }
 
-/* CARDS liste — plus compactes */
 .card {
   background:var(--surface); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
   border-radius:var(--radius); padding:8px 10px 8px 12px; margin-bottom:7px;
@@ -102,7 +91,6 @@ body::before {
 .card.reported .icon   { background: rgba(155,89,255,0.10); }
 .card.reported .cdate:first-of-type { color:#9B59FF; font-weight:700; }
 
-/* ICON dans les cards */
 .icon { width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; }
 .card.red    .icon { background:var(--danger-soft); }
 .card.orange .icon { background:var(--warning-soft); }
@@ -116,7 +104,6 @@ body::before {
 .card.orange .cdate:first-of-type { color:var(--warning); font-weight:700; }
 .chev { font-size:16px; color:rgba(9,9,14,0.18); flex-shrink:0; font-weight:700; }
 
-/* DETAIL TOP — moins haut */
 .detail-top {
   background:rgba(255,255,255,0.75); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
   margin:-10px -10px 12px; padding:10px 14px 10px; border-bottom:1px solid var(--sep);
@@ -126,7 +113,6 @@ body::before {
 .detail-title { font-size:17px; font-weight:800; color:var(--label); letter-spacing:-0.02em; line-height:1.1; }
 .detail-sub { font-size:12px; color:var(--label3); font-weight:600; margin-top:2px; }
 
-/* MAIN INTERVENTION CARD — plus compacte */
 .main-intervention {
   background:var(--surface-solid); border-radius:var(--radius); padding:10px 12px;
   box-shadow:var(--shadow-md); border:1px solid rgba(255,255,255,0.8);
@@ -142,7 +128,6 @@ body::before {
 .status-pill.danger { background:var(--danger-soft); color:var(--danger); }
 .status-pill.blue { background:var(--accent-soft); color:var(--accent); }
 
-/* GRILLE ACTIONS — plus compacte */
 .action-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin-bottom:10px; }
 .action {
   background:var(--surface-solid); border:none; border-radius:var(--radius-sm);
@@ -161,7 +146,6 @@ body::before {
 .action-grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:7px; margin-bottom:10px; }
 .action-grid-2 .action { min-height:62px; }
 
-/* BOUTONS DU BAS — bien plus petits */
 .bottom-actions { display:flex; flex-direction:column; gap:7px; padding-bottom:6px; }
 
 .primary-btn {
@@ -231,11 +215,9 @@ textarea:focus { border-color:var(--accent); }
 .login-input:focus { border-color:var(--accent); background:#fff; }
 .login-demo { margin-top:16px; font-size:11px; line-height:1.6; color:var(--label3); font-weight:600; }
 
-.logout-btn:active { transform:scale(.96); }
 .logout-btn { border:none; background:transparent; color:var(--label3); padding:6px 8px; border-radius:10px; cursor:pointer; font-family:inherit; transition:all .15s ease; display:flex; align-items:center; }
+.logout-btn:active { transform:scale(.96); }
 
-  
-/* Abonnement cards */
 .abon-card {
   background:var(--surface-solid); border-radius:var(--radius); padding:16px; margin-bottom:10px;
   box-shadow:var(--shadow-md); border:2px solid transparent;
@@ -255,7 +237,6 @@ textarea:focus { border-color:var(--accent); }
 .abon-feat { font-size:12.5px; font-weight:600; color:var(--label2); display:flex; align-items:center; gap:6px; }
 .abon-feat::before { content:'✓'; color:var(--success); font-weight:800; }
 
-/* Registre table */
 .reg-row {
   background:var(--surface-solid); border-radius:var(--radius-sm); padding:10px 13px;
   margin-bottom:6px; display:flex; align-items:center; gap:10px;
@@ -271,7 +252,6 @@ textarea:focus { border-color:var(--accent); }
 .reg-pill.warn   { background:var(--warning-soft); color:var(--warning); }
 .reg-pill.danger { background:var(--danger-soft); color:var(--danger); }
 
-/* RDV form */
 .rdv-select {
   width:100%; border:1.5px solid var(--sep); border-radius:var(--radius); padding:13px;
   margin-bottom:10px; font-family:inherit; font-size:15px; font-weight:600;
@@ -283,7 +263,6 @@ textarea:focus { border-color:var(--accent); }
 .rdv-input { width:100%; border:1.5px solid var(--sep); border-radius:var(--radius); padding:13px; margin-bottom:10px; font-family:inherit; font-size:15px; font-weight:600; background:var(--surface-solid); outline:none; color:var(--label); }
 .rdv-input:focus { border-color:var(--accent); }
 
-/* Confirm screen */
 .confirm-screen { text-align:center; padding:28px 20px; animation:cardIn .4s ease; }
 .confirm-ico { font-size:60px; margin-bottom:16px; display:block; animation:badgePop .5s cubic-bezier(.34,1.56,.64,1); }
 .confirm-title { font-size:22px; font-weight:800; letter-spacing:-0.02em; margin-bottom:7px; }
@@ -299,11 +278,7 @@ textarea:focus { border-color:var(--accent); }
 .card:nth-child(1){animation-delay:.03s}.card:nth-child(2){animation-delay:.06s}.card:nth-child(3){animation-delay:.09s}.card:nth-child(4){animation-delay:.12s}.card:nth-child(5){animation-delay:.15s}
 .action:nth-child(1){animation-delay:.05s}.action:nth-child(2){animation-delay:.09s}.action:nth-child(3){animation-delay:.13s}.action:nth-child(4){animation-delay:.17s}.action:nth-child(5){animation-delay:.21s}.action:nth-child(6){animation-delay:.25s}
 
-input,
-textarea,
-select {
-  font-size: 16px !important;
-}
+input, textarea, select { font-size: 16px !important; }
 </style>
 </head>
 
@@ -314,7 +289,6 @@ select {
       <img src="IMG_5662.webp" class="login-logo" alt="Action Incendie">
       <div class="login-title">Connexion</div>
       <div class="login-sub">Bienvenue</div>
-
       <input id="loginEmail" class="login-input" type="email" placeholder="Email" onkeydown="if(event.key==='Enter')loginDemo()">
       <input id="loginPassword" class="login-input" type="password" placeholder="Mot de passe" onkeydown="if(event.key==='Enter')loginDemo()">
       <button type="button" class="primary-btn" onclick="loginDemo()">Se connecter</button>
@@ -331,13 +305,12 @@ select {
       <div style="display:flex;align-items:center;gap:8px;">
         <span class="badge" id="badge"></span>
         <button onclick="logout()" class="logout-btn" title="Déconnexion">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-    <polyline points="16 17 21 12 16 7"/>
-    <line x1="21" y1="12" x2="9" y2="12"/>
-  </svg>
-</button>
-
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </button>
       </div>
     </div>
     <div class="tabs" id="tabs">
@@ -367,12 +340,11 @@ select {
 <script>
 const GET_URL  = "https://hook.eu1.make.com/wfp9dc520ic15yvl7u4lx6v1oyuhlckn";
 const POST_URL = "https://hook.eu1.make.com/v2at1keat2dqxxf2jza4tnxp3m3a2g35";
-const HIST_URL   = "https://hook.eu1.make.com/6etkl3pphxxwmly0jha93m246am0d2n8";
+const HIST_URL = "https://hook.eu1.make.com/6etkl3pphxxwmly0jha93m246am0d2n8";
 
-// ── Nouveaux webhooks à remplir dans Make ─────────────────────────────────
-const INFOS_URL   = "";  // ← Coller l'URL du webhook Make "Infos client"
-const REPORTER_URL = ""; // ← Coller l'URL du webhook Make "Reporter par email"
-const FACTURE_URL = "";  // ← Coller l'URL du webhook Make "Générer facture"
+const INFOS_URL    = "";
+const REPORTER_URL = "";
+const FACTURE_URL  = "";
 
 let items = [], hist = [], currentTab = "today";
 let selectedItem = null, pendingId = null;
@@ -382,7 +354,30 @@ let cancelledIds = {};
 let selectedAbon = null;
 let reportedIds = {};
 
-// ─── TABS ────────────────────────────────────────────────────────────────────
+// ─── DEMO DATA ────────────────────────────────────────────────────────────────
+const DEMO_DOCUMENTS_TECH = [
+  { ico:"📄", name:"Fiche de sécurité site", date:"10 Jun 2025", type:"PDF" },
+  { ico:"📋", name:"Plan d'évacuation", date:"10 Jun 2025", type:"PDF" },
+  { ico:"📜", name:"Contrat de maintenance", date:"01 Jan 2025", type:"PDF" },
+];
+
+const DEMO_RAPPORT_TECH = [
+  { equipement:"Extincteur CO₂", action:"Vérification", resultat:"Conforme", commentaire:"RAS" },
+  { equipement:"BAES couloir", action:"Contrôle visuel", resultat:"Conforme", commentaire:"" },
+  { equipement:"Détecteur fumée", action:"Test", resultat:"Conforme", commentaire:"Testé OK" },
+];
+
+const DEMO_FACTURE_TECH = {
+  num: "FAC-2025-042",
+  date: "10 juin 2025",
+  lignes: [
+    { name:"Vérification extincteur", prix:50 },
+    { name:"Contrôle BAES", prix:35 },
+    { name:"Test détecteur fumée", prix:30 },
+  ]
+};
+
+// ─── TABS ─────────────────────────────────────────────────────────────────────
 document.querySelectorAll(".tab").forEach(t => {
   t.addEventListener("click", () => {
     currentTab = t.dataset.tab;
@@ -394,7 +389,7 @@ document.querySelectorAll(".tab").forEach(t => {
   });
 });
 
-// ─── DATA ────────────────────────────────────────────────────────────────────
+// ─── DATA ─────────────────────────────────────────────────────────────────────
 async function loadData() {
   showLoader();
   try { items = await (await fetch(GET_URL)).json(); } catch { items = []; }
@@ -403,7 +398,7 @@ async function loadData() {
   render();
 }
 
-// ─── TECH RENDER ─────────────────────────────────────────────────────────────
+// ─── RENDER ───────────────────────────────────────────────────────────────────
 function render() {
   const c = document.getElementById("content");
   c.innerHTML = "";
@@ -448,16 +443,16 @@ function render() {
 }
 
 function listCard(item, idx, cls) {
-const isReported = reportedIds[item.id] === true;
-const isCancelled = cancelledIds[item.id] === true;
-const cardCls = isCancelled ? "red" : isReported ? "reported" : cls;
-const ico = isCancelled ? "❌" : isReported ? "📤" : cls === "red" ? "⚠️" : cls === "orange" ? "📅" : "📋";
+  const isReported = reportedIds[item.id] === true;
+  const isCancelled = cancelledIds[item.id] === true;
+  const cardCls = isCancelled ? "red" : isReported ? "reported" : cls;
+  const ico = isCancelled ? "❌" : isReported ? "📤" : cls === "red" ? "⚠️" : cls === "orange" ? "📅" : "📋";
   return `
     <div class="card ${cardCls}" onclick="openDetail('${escapeJs(item.id)}')">
       <div class="icon">${ico}</div>
       <div class="info">
         <div class="cname">${safe(item.entreprise||"")} · ${safe(item.name||"")}</div>
-      <div class="cdate">${isCancelled ? `<s>${fmtDate(item.date)}</s> · <span style="color:var(--danger);font-weight:700">Annulé</span>` : isReported ? `<s>${fmtDate(item.date)}</s> · <span style="color:#9B59FF;font-weight:700">Reporté</span>` : `${fmtDate(item.date)} · ${fmtHeure(item.date)}`}</div>
+        <div class="cdate">${isCancelled ? `<s>${fmtDate(item.date)}</s> · <span style="color:var(--danger);font-weight:700">Annulé</span>` : isReported ? `<s>${fmtDate(item.date)}</s> · <span style="color:#9B59FF;font-weight:700">Reporté</span>` : `${fmtDate(item.date)} · ${fmtHeure(item.date)}`}</div>
         <div class="cdate">${safe(getAdresseSansCP(item.adresse))}</div>
         <div class="cdate">${safe(getCodePostalVille(item.adresse))}</div>
       </div>
@@ -518,10 +513,10 @@ function renderDetail(item) {
         <div class="main-line">${safe(item.name || "")}</div>
         <div class="main-line">${safe(getAdresseSansCP(item.adresse))}</div>
         <div class="main-line">${safe(getCodePostalVille(item.adresse))}</div>
-       <div class="main-line main-date">${fmtDate(item.date)} · ${fmtHeure(item.date)}</div>
+        <div class="main-line main-date">${fmtDate(item.date)} · ${fmtHeure(item.date)}</div>
         ${reportStatus}
         ${reportedIds[item.id] ? '<div class="status-pill" style="background:rgba(155,89,255,0.12);color:#9B59FF;margin-top:8px">📤 Intervention reportée — email envoyé</div>' : ''}
-      ${cancelledIds[item.id] ? '<div class="status-pill danger" style="margin-top:8px">❌ Intervention annulée</div>' : ''}
+        ${cancelledIds[item.id] ? '<div class="status-pill danger" style="margin-top:8px">❌ Intervention annulée</div>' : ''}
       </div>
     </div>
     <div class="action-grid">
@@ -534,24 +529,45 @@ function renderDetail(item) {
       <button class="action" onclick="openInfosClient()">
         <div class="action-ico">👤</div><span>Infos client</span>
       </button>
-      <button class="action" onclick="toast('Documents bientôt disponibles')">
+      <button class="action" onclick="openDocumentsTech()">
         <div class="action-ico">📄</div><span>Documents</span>
       </button>
       ${workButtons}
     </div>
     <div class="bottom-actions">
       ${closeButton}
-     ${!reportedIds[item.id] ? `<button class="secondary-btn" onclick="openRescheduleSheet('${escapeJs(item.id)}','${escapeJs(item.name||item.entreprise||"Client")}')">Reporter</button>` : ''}
-   ${!cancelledIds[item.id] ? `<button class="danger-btn" onclick="openCancelSheet('${escapeJs(item.id)}','${escapeJs(item.name||item.entreprise||"Client")}')">Annuler</button>` : ''}
+      ${!reportedIds[item.id] ? `<button class="secondary-btn" onclick="openRescheduleSheet('${escapeJs(item.id)}','${escapeJs(item.name||item.entreprise||"Client")}')">Reporter</button>` : ''}
+      ${!cancelledIds[item.id] ? `<button class="danger-btn" onclick="openCancelSheet('${escapeJs(item.id)}','${escapeJs(item.name||item.entreprise||"Client")}')">Annuler</button>` : ''}
     </div>`;
+}
+
+// ─── DOCUMENTS TECHNICIEN ─────────────────────────────────────────────────────
+function openDocumentsTech() {
+  hideMainBars();
+  const item = selectedItem;
+  document.getElementById("content").innerHTML = `
+    <div class="detail-top">
+      <div class="back" onclick="renderDetail(selectedItem)">Retour</div>
+      <div class="detail-title">Documents</div>
+      <div class="detail-sub">${safe(item ? (item.entreprise || item.name) : "Client")}</div>
+    </div>
+    <div class="slabel">${DEMO_DOCUMENTS_TECH.length} documents</div>
+    ${DEMO_DOCUMENTS_TECH.map(d => `
+      <div class="card blue" onclick="toast('📄 Ouverture de ${safe(d.name)}…')">
+        <div class="icon">${d.ico}</div>
+        <div class="info">
+          <div class="cname">${safe(d.name)}</div>
+          <div class="cdate">${d.date} · ${d.type}</div>
+        </div>
+        <div class="chev">↓</div>
+      </div>
+    `).join("")}`;
 }
 
 function renderHistoryDetail(item) {
   hideMainBars();
   const phone = item.telephone || item.tel || item.phone || "";
   const hasPhone = String(phone).trim().length > 0;
-  const rapportUrl = item.rapport_pdf_url || item.rapport_url || "";
-  const factureUrl = item.facture_pdf_url || item.facture_url || "";
   document.getElementById("content").innerHTML = `
     <div class="detail-top">
       <div class="back" onclick="backToList()">Retour</div>
@@ -576,24 +592,126 @@ function renderHistoryDetail(item) {
       <button class="action" onclick="openMaps('${escapeJs(item.adresse||"")}')">
         <div class="action-ico">🧭</div><span>Itinéraire</span>
       </button>
-      <button class="action" onclick="${rapportUrl ? `window.open('${escapeJs(rapportUrl)}','_blank')` : `toast('Rapport non disponible')`}">
+      <button class="action" onclick="openDemoRapportHist()">
         <div class="action-ico">📋</div><span>Voir rapport</span>
       </button>
-      <button class="action" onclick="${factureUrl ? `window.open('${escapeJs(factureUrl)}','_blank')` : `toast('Facture non disponible')`}">
+      <button class="action" onclick="openDemoFactureHist()">
         <div class="action-ico">💶</div><span>Voir facture</span>
       </button>
-      <button class="action" onclick="toast('Renvoi bientôt connecté à Make')">
+      <button class="action" onclick="openDemoRenvoi()">
         <div class="action-ico">📤</div><span>Renvoyer</span>
       </button>
       <button class="action" onclick="openRescheduleSheet('${escapeJs(item.id)}','${escapeJs(item.name||item.entreprise||"Client")}')">
         <div class="action-ico">📅</div><span>Reprogrammer</span>
       </button>
-          </div>`;
+    </div>`;
+}
+
+// ─── DEMO RAPPORT HISTORIQUE ──────────────────────────────────────────────────
+function openDemoRapportHist() {
+  hideMainBars();
+  const item = selectedItem;
+  document.getElementById("content").innerHTML = `
+    <div class="detail-top">
+      <div class="back" onclick="renderHistoryDetail(selectedItem)">Retour</div>
+      <div class="detail-title">Rapport d'intervention</div>
+      <div class="detail-sub">${safe(item ? (item.entreprise || item.name) : "Client")} · ${item ? fmtDate(item.date) : ""}</div>
+    </div>
+    <div class="main-intervention">
+      <div class="icon">✅</div>
+      <div class="info">
+        <div class="main-title">${safe(item ? (item.entreprise || item.name) : "Client")}</div>
+        <div class="main-line main-date">Intervention clôturée</div>
+        <div class="status-pill">✅ Rapport validé</div>
+      </div>
+    </div>
+    <div class="slabel">${DEMO_RAPPORT_TECH.length} tâches réalisées</div>
+    ${DEMO_RAPPORT_TECH.map(l => `
+      <div class="card ok">
+        <div class="icon">📋</div>
+        <div class="info">
+          <div class="cname">${safe(l.equipement)} · ${safe(l.action)}</div>
+          <div class="cdate">${safe(l.resultat)}${l.commentaire ? ' · '+safe(l.commentaire) : ''}</div>
+        </div>
+      </div>
+    `).join("")}
+    <div class="bottom-actions" style="margin-top:8px">
+      <button class="secondary-btn" onclick="toast('📄 Téléchargement du rapport PDF…')">📥 Télécharger PDF</button>
+    </div>`;
+}
+
+// ─── DEMO FACTURE HISTORIQUE ──────────────────────────────────────────────────
+function openDemoFactureHist() {
+  hideMainBars();
+  const item = selectedItem;
+  const total = DEMO_FACTURE_TECH.lignes.reduce((s,l) => s+l.prix, 0);
+  document.getElementById("content").innerHTML = `
+    <div class="detail-top">
+      <div class="back" onclick="renderHistoryDetail(selectedItem)">Retour</div>
+      <div class="detail-title">Facture</div>
+      <div class="detail-sub">${DEMO_FACTURE_TECH.num}</div>
+    </div>
+    <div class="main-intervention">
+      <div class="icon">💶</div>
+      <div class="info">
+        <div class="main-title">${DEMO_FACTURE_TECH.num}</div>
+        <div class="main-line">Émise le ${DEMO_FACTURE_TECH.date}</div>
+        <div class="main-line main-date">${safe(item ? (item.entreprise || item.name) : "Client")}</div>
+      </div>
+    </div>
+    <div class="slabel">Prestations</div>
+    ${DEMO_FACTURE_TECH.lignes.map(l => `
+      <div class="reg-row">
+        <div class="reg-ico">🧯</div>
+        <div class="reg-info">
+          <div class="reg-name">${safe(l.name)}</div>
+        </div>
+        <div style="font-size:13px;font-weight:800;color:var(--label)">${l.prix} €</div>
+      </div>
+    `).join("")}
+    <div class="reg-row" style="background:var(--accent-soft);margin-top:4px">
+      <div class="reg-ico">💰</div>
+      <div class="reg-info"><div class="reg-name" style="color:var(--accent)">Total HT</div></div>
+      <div style="font-size:16px;font-weight:800;color:var(--accent)">${total} €</div>
+    </div>
+    <div class="bottom-actions" style="margin-top:8px">
+      <button class="primary-btn" onclick="toast('📧 Facture renvoyée par email…')">📧 Renvoyer par email</button>
+      <button class="secondary-btn" onclick="toast('📄 Téléchargement de la facture PDF…')">📥 Télécharger PDF</button>
+    </div>`;
+}
+
+// ─── DEMO RENVOI ──────────────────────────────────────────────────────────────
+function openDemoRenvoi() {
+  hideMainBars();
+  const item = selectedItem;
+  document.getElementById("content").innerHTML = `
+    <div class="detail-top">
+      <div class="back" onclick="renderHistoryDetail(selectedItem)">Retour</div>
+      <div class="detail-title">Renvoyer</div>
+      <div class="detail-sub">${safe(item ? (item.entreprise || item.name) : "Client")}</div>
+    </div>
+    <div class="slabel">Choisir ce qu'on renvoie</div>
+    <div class="card blue" onclick="toast('📧 Rapport renvoyé par email…')">
+      <div class="icon">📋</div>
+      <div class="info">
+        <div class="cname">Rapport d'intervention</div>
+        <div class="cdate">Envoyer par email au client</div>
+      </div>
+      <div class="chev">›</div>
+    </div>
+    <div class="card blue" onclick="toast('📧 Facture renvoyée par email…')">
+      <div class="icon">💶</div>
+      <div class="info">
+        <div class="cname">Facture ${DEMO_FACTURE_TECH.num}</div>
+        <div class="cdate">Envoyer par email au client</div>
+      </div>
+      <div class="chev">›</div>
+    </div>`;
 }
 
 function backToList() { selectedItem = null; showMainBars(); render(); }
 
-// ─── RAPPORT ─────────────────────────────────────────────────────────────────
+// ─── RAPPORT ──────────────────────────────────────────────────────────────────
 function openReportPage() {
   if (!selectedItem) return;
   hideMainBars();
@@ -694,48 +812,27 @@ async function confirmClose() {
 }
 function openRescheduleSheet(id, name) {
   pendingId = id;
-  openSheet(name, "Reporter l'intervention ?",
-    `<button class="sbtn confirm" onclick="confirmReporter()">📧 Envoyer un email au client</button>`);
+  openSheet(name, "Reporter l'intervention ?", `<button class="sbtn confirm" onclick="confirmReporter()">📧 Envoyer un email au client</button>`);
 }
 function openCancelSheet(id, name) { pendingId = id; openSheet(name, "Que voulez-vous faire ?",`<button class="sbtn warn" onclick="fakeAction('annuler_reprogrammer')">Annuler et reprogrammer</button><button class="sbtn danger" onclick="fakeAction('annuler_definitif')">Annuler définitivement</button>`); }
 function fakeAction(action) {
   closeSheet();
- if (action === "annuler_reprogrammer") { cancelledIds[pendingId] = true; render(); toast("Intervention annulée"); }
-if (action === "annuler_definitif") { cancelledIds[pendingId] = true; render(); toast("Intervention annulée"); }
+  if (action === "annuler_reprogrammer") { cancelledIds[pendingId] = true; render(); toast("Intervention annulée"); }
+  if (action === "annuler_definitif") { cancelledIds[pendingId] = true; render(); toast("Intervention annulée"); }
 }
 
-// ─── REPORTER PAR EMAIL ───────────────────────────────────────────────────────
 async function confirmReporter() {
- closeSheet();
-if (!selectedItem) return;
-reportedIds[selectedItem.id] = true;
+  closeSheet();
+  if (!selectedItem) return;
+  reportedIds[selectedItem.id] = true;
   const item = selectedItem;
   const email = item.email || item.mail || "";
-
-  if (!REPORTER_URL) {
-    renderReporterConfirm(item, email || "client@demo.fr", true);
-    return;
-  }
-
+  if (!REPORTER_URL) { renderReporterConfirm(item, email || "client@demo.fr", true); return; }
   toast("Envoi en cours…");
   try {
-    await fetch(REPORTER_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type: "reporter",
-        id: item.id,
-        entreprise: item.entreprise || "",
-        name: item.name || "",
-        email: email,
-        adresse: item.adresse || "",
-        date_originale: item.date || "",
-      })
-    });
+    await fetch(REPORTER_URL, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({ type:"reporter", id:item.id, entreprise:item.entreprise||"", name:item.name||"", email, adresse:item.adresse||"", date_originale:item.date||"" }) });
     renderReporterConfirm(item, email, false);
-  } catch {
-    toast("❌ Erreur lors de l'envoi");
-  }
+  } catch { toast("❌ Erreur lors de l'envoi"); }
 }
 
 function renderReporterConfirm(item, email, isDemo) {
@@ -749,53 +846,31 @@ function renderReporterConfirm(item, email, isDemo) {
     <div class="confirm-screen">
       <span class="confirm-ico">📧</span>
       <div class="confirm-title">Email envoyé !</div>
-      <div class="confirm-sub">
-        Un email de report a été envoyé à<br>
-        <strong>${safe(email || "adresse non renseignée")}</strong><br><br>
-        Le client pourra choisir une nouvelle date.<br>
-        L'intervention sera mise à jour dans le planning.
-      </div>
-      <div style="margin-top:20px">
-        <button class="secondary-btn" onclick="backToList()">Retour au planning</button>
-      </div>
+      <div class="confirm-sub">Un email de report a été envoyé à<br><strong>${safe(email || "adresse non renseignée")}</strong><br><br>Le client pourra choisir une nouvelle date.</div>
+      <div style="margin-top:20px"><button class="secondary-btn" onclick="backToList()">Retour au planning</button></div>
     </div>`;
 }
 
-// ─── INFOS CLIENT ─────────────────────────────────────────────────────────────
 async function openInfosClient() {
   if (!selectedItem) return;
   const item = selectedItem;
   hideMainBars();
   const c = document.getElementById("content");
-
-  const nom       = item.name        || "—";
-  const entreprise= item.entreprise  || "—";
-  const adresse   = item.adresse     || "—";
-  const tel       = item.telephone || item.tel || item.phone || "—";
-  const email     = item.email || item.mail   || "—";
-  const hasPhone  = tel !== "—";
-  const hasEmail  = email !== "—";
-
+  const nom = item.name || "—";
+  const entreprise = item.entreprise || "—";
+  const adresse = item.adresse || "—";
+  const tel = item.telephone || item.tel || item.phone || "—";
+  const email = item.email || item.mail || "—";
+  const hasPhone = tel !== "—";
   let extra = null;
-  if (INFOS_URL) {
-    try {
-      toast("Chargement…");
-      const res = await fetch(`${INFOS_URL}?id=${encodeURIComponent(item.id)}`);
-      extra = await res.json();
-    } catch { extra = null; }
-  }
-
+  if (INFOS_URL) { try { const res = await fetch(`${INFOS_URL}?id=${encodeURIComponent(item.id)}`); extra = await res.json(); } catch {} }
   const nbInterventions = extra?.nb_interventions ?? "—";
-  const dateClient      = extra?.date_creation    ?? "—";
-  const contrat         = extra?.contrat          ?? "—";
-
   c.innerHTML = `
     <div class="detail-top">
       <div class="back" onclick="renderDetail(selectedItem)">Retour</div>
       <div class="detail-title">Infos client</div>
       <div class="detail-sub">${safe(entreprise)}</div>
     </div>
-
     <div class="main-intervention">
       <div class="icon">👤</div>
       <div class="info">
@@ -804,47 +879,31 @@ async function openInfosClient() {
         <div class="main-line">${safe(adresse)}</div>
       </div>
     </div>
-
     <div class="slabel">Coordonnées</div>
     <div class="reg-row" style="cursor:${hasPhone?'pointer':'default'}" onclick="${hasPhone?`callClient('${escapeJs(tel)}')`:''}">
       <div class="reg-ico">📞</div>
-      <div class="reg-info">
-        <div class="reg-name">${safe(tel)}</div>
-        <div class="reg-meta">Téléphone${hasPhone?' · Appuyer pour appeler':''}</div>
-      </div>
+      <div class="reg-info"><div class="reg-name">${safe(tel)}</div><div class="reg-meta">Téléphone${hasPhone?' · Appuyer pour appeler':''}</div></div>
       ${hasPhone ? '<div class="chev" style="color:var(--accent)">›</div>' : ''}
     </div>
     <div class="reg-row">
       <div class="reg-ico">✉️</div>
-      <div class="reg-info">
-        <div class="reg-name">${safe(email)}</div>
-        <div class="reg-meta">Email</div>
-      </div>
+      <div class="reg-info"><div class="reg-name">${safe(email)}</div><div class="reg-meta">Email</div></div>
     </div>
     <div class="reg-row">
       <div class="reg-ico">📍</div>
-      <div class="reg-info">
-        <div class="reg-name">${safe(adresse)}</div>
-        <div class="reg-meta">Adresse · <span style="color:var(--accent);cursor:pointer" onclick="openMaps('${escapeJs(adresse)}')">Ouvrir Maps</span></div>
-      </div>
+      <div class="reg-info"><div class="reg-name">${safe(adresse)}</div><div class="reg-meta">Adresse · <span style="color:var(--accent);cursor:pointer" onclick="openMaps('${escapeJs(adresse)}')">Ouvrir Maps</span></div></div>
     </div>
-
     <div class="slabel">Historique</div>
     <div class="reg-row">
       <div class="reg-ico">🗂️</div>
-      <div class="reg-info">
-        <div class="reg-name">${safe(String(nbInterventions))} intervention${nbInterventions!==1?'s':''}</div>
-        <div class="reg-meta">Total interventions : 0</div>
-      </div>
+      <div class="reg-info"><div class="reg-name">${safe(String(nbInterventions))} intervention${nbInterventions!==1?'s':''}</div><div class="reg-meta">Total interventions</div></div>
     </div>
-
     <div class="bottom-actions" style="margin-top:12px">
       ${hasPhone ? `<button class="primary-btn" onclick="callClient('${escapeJs(tel)}')">📞 Appeler le client</button>` : ''}
       <button class="secondary-btn" onclick="openRescheduleSheet('${escapeJs(item.id)}','${escapeJs(item.name||item.entreprise||"")}')">📅 Reporter l'intervention</button>
     </div>`;
 }
 
-// ─── FACTURE ──────────────────────────────────────────────────────────────────
 function openFacture() {
   if (!selectedItem) return;
   hideMainBars();
@@ -852,14 +911,12 @@ function openFacture() {
   const today = new Date();
   const numFacture = "FAC-" + today.getFullYear() + "-" + String(Math.floor(Math.random()*900)+100);
   const dateStr = today.toLocaleDateString("fr-FR", { day:"numeric", month:"long", year:"numeric" });
-
   document.getElementById("content").innerHTML = `
     <div class="detail-top">
       <div class="back" onclick="renderDetail(selectedItem)">Retour</div>
       <div class="detail-title">Facture</div>
       <div class="detail-sub">${safe(item.entreprise || item.name || "Client")}</div>
     </div>
-
     <div class="main-intervention">
       <div class="icon">💶</div>
       <div class="info">
@@ -868,26 +925,17 @@ function openFacture() {
         <div class="main-line main-date">À envoyer par email</div>
       </div>
     </div>
-
     <div class="slabel">Détail de la facture</div>
-
     <div class="reg-row">
       <div class="reg-ico">🏢</div>
-      <div class="reg-info">
-        <div class="reg-name">${safe(item.entreprise || item.name || "Client")}</div>
-        <div class="reg-meta">${safe(item.adresse || "")}</div>
-      </div>
+      <div class="reg-info"><div class="reg-name">${safe(item.entreprise || item.name || "Client")}</div><div class="reg-meta">${safe(item.adresse || "")}</div></div>
     </div>
-
     <div class="slabel">Prestations</div>
     <div id="factureLines">
       ${(reportLinesById[item.id]||[]).map((l,i) => `
         <div class="reg-row">
           <div class="reg-ico">🧯</div>
-          <div class="reg-info">
-            <div class="reg-name">${safe(l.equipement)} — ${safe(l.action)}</div>
-            <div class="reg-meta">${safe(l.resultat)}${l.commentaire ? ' · '+safe(l.commentaire) : ''}</div>
-          </div>
+          <div class="reg-info"><div class="reg-name">${safe(l.equipement)} — ${safe(l.action)}</div><div class="reg-meta">${safe(l.resultat)}${l.commentaire?' · '+safe(l.commentaire):''}</div></div>
           <div style="font-size:13px;font-weight:800;color:var(--label);flex-shrink:0">
             <input type="number" id="prix_${i}" value="50" min="0" step="5"
               style="width:64px;border:1.5px solid var(--sep);border-radius:8px;padding:6px 8px;font-size:13px;font-weight:700;text-align:right;background:var(--bg);outline:none;font-family:inherit"
@@ -896,21 +944,13 @@ function openFacture() {
         </div>
       `).join("") || `<div class="reg-row"><div class="reg-ico">ℹ️</div><div class="reg-info"><div class="reg-name">Aucune prestation dans le rapport</div><div class="reg-meta">Clôture le rapport d'abord</div></div></div>`}
     </div>
-
     <div class="reg-row" style="margin-top:4px;background:var(--accent-soft)">
       <div class="reg-ico">💰</div>
-      <div class="reg-info">
-        <div class="reg-name" style="color:var(--accent)">Total HT</div>
-      </div>
-      <div style="font-size:18px;font-weight:800;color:var(--accent)" id="totalHT">
-        ${(reportLinesById[item.id]||[]).length * 50} €
-      </div>
+      <div class="reg-info"><div class="reg-name" style="color:var(--accent)">Total HT</div></div>
+      <div style="font-size:18px;font-weight:800;color:var(--accent)" id="totalHT">${(reportLinesById[item.id]||[]).length * 50} €</div>
     </div>
-
     <div class="bottom-actions" style="margin-top:12px">
-      <button class="primary-btn" onclick="envoyerFacture('${escapeJs(item.id)}','${escapeJs(item.email||item.mail||"")}','${numFacture}')">
-        📧 Envoyer la facture par email
-      </button>
+      <button class="primary-btn" onclick="envoyerFacture('${escapeJs(item.id)}','${escapeJs(item.email||item.mail||"")}','${numFacture}')">📧 Envoyer la facture par email</button>
       <button class="secondary-btn" onclick="renderDetail(selectedItem)">Retour à l'intervention</button>
     </div>`;
 }
@@ -925,38 +965,14 @@ function updateTotal() {
 
 async function envoyerFacture(id, email, numFacture) {
   const item = items.find(i => String(i.id) === String(id));
-  const lignes = (reportLinesById[id]||[]).map((l, i) => {
-    const inp = document.getElementById("prix_"+i);
-    return { ...l, prix: inp ? parseFloat(inp.value)||0 : 0 };
-  });
+  const lignes = (reportLinesById[id]||[]).map((l, i) => { const inp = document.getElementById("prix_"+i); return { ...l, prix: inp ? parseFloat(inp.value)||0 : 0 }; });
   const total = lignes.reduce((s, l) => s + l.prix, 0);
-
-  if (!FACTURE_URL) {
-    renderFactureConfirm(item, email || "client@demo.fr", numFacture, total, true);
-    return;
-  }
-
+  if (!FACTURE_URL) { renderFactureConfirm(item, email || "client@demo.fr", numFacture, total, true); return; }
   toast("Génération de la facture…");
   try {
-    await fetch(FACTURE_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type: "facture",
-        id, numFacture,
-        entreprise: item?.entreprise || "",
-        name: item?.name || "",
-        adresse: item?.adresse || "",
-        email,
-        lignes,
-        total,
-        date: new Date().toISOString(),
-      })
-    });
+    await fetch(FACTURE_URL, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({ type:"facture", id, numFacture, entreprise:item?.entreprise||"", name:item?.name||"", adresse:item?.adresse||"", email, lignes, total, date:new Date().toISOString() }) });
     renderFactureConfirm(item, email, numFacture, total, false);
-  } catch {
-    toast("❌ Erreur lors de l'envoi");
-  }
+  } catch { toast("❌ Erreur lors de l'envoi"); }
 }
 
 function renderFactureConfirm(item, email, numFacture, total, isDemo) {
@@ -969,14 +985,8 @@ function renderFactureConfirm(item, email, numFacture, total, isDemo) {
     <div class="confirm-screen">
       <span class="confirm-ico">✅</span>
       <div class="confirm-title">${numFacture}</div>
-      <div class="confirm-sub">
-        Facture de <strong>${total} € HT</strong> envoyée à<br>
-        <strong>${safe(email || "adresse non renseignée")}</strong><br><br>
-        ${safe(item?.entreprise || item?.name || "")}
-      </div>
-      <div style="margin-top:20px">
-        <button class="secondary-btn" onclick="backToList()">Retour au planning</button>
-      </div>
+      <div class="confirm-sub">Facture de <strong>${total} € HT</strong> envoyée à<br><strong>${safe(email || "adresse non renseignée")}</strong><br><br>${safe(item?.entreprise || item?.name || "")}</div>
+      <div style="margin-top:20px"><button class="secondary-btn" onclick="backToList()">Retour au planning</button></div>
     </div>`;
 }
 
@@ -988,8 +998,7 @@ function openSheet(name, sub, buttonsHtml) {
 }
 function closeSheet() { document.getElementById("backdrop").classList.remove("open"); document.getElementById("sheetButtons").innerHTML = ""; }
 
-// ─── CLIENT DEMO ─────────────────────────────────────────────────────────────
-
+// ─── CLIENT ───────────────────────────────────────────────────────────────────
 const CLIENT_NAME = "Action Incendie";
 
 const DEMO_DOCUMENTS = [
@@ -998,13 +1007,11 @@ const DEMO_DOCUMENTS = [
   { ico:"📄", name:"Conditions générales", date:"01 Jan 2024", type:"PDF" },
   { ico:"🔖", name:"Bon de commande #2024-087", date:"22 Oct 2024", type:"PDF" },
 ];
-
 const DEMO_RAPPORTS = [
   { ico:"✅", name:"Vérification extincteurs", date:"12 Nov 2024", tech:"Laurent M.", statut:"ok" },
   { ico:"✅", name:"Contrôle BAES", date:"03 Sep 2024", tech:"Thomas R.", statut:"ok" },
   { ico:"⚠️", name:"Maintenance alarme incendie", date:"18 Juil 2024", tech:"Laurent M.", statut:"warn" },
 ];
-
 const DEMO_REGISTRE = [
   { ico:"🧯", name:"Extincteur CO₂ – Local technique", serie:"EXT-001", verif:"Avr 2025", statut:"ok" },
   { ico:"🧯", name:"Extincteur poudre – Hall entrée", serie:"EXT-002", verif:"Avr 2025", statut:"ok" },
@@ -1013,14 +1020,12 @@ const DEMO_REGISTRE = [
   { ico:"💡", name:"BAES – Escalier principal", serie:"BAE-002", verif:"Nov 2024", statut:"warn" },
   { ico:"🔔", name:"Détecteur fumée – Cuisine", serie:"DET-001", verif:"Juil 2024", statut:"danger" },
 ];
-
 const DEMO_ECHEANCES = [
   { ico:"🧯", name:"Vérification extincteurs", echeance:"Avr 2025", jours:+45, statut:"ok" },
   { ico:"💡", name:"Contrôle BAES", echeance:"Nov 2024", jours:-185, statut:"danger" },
   { ico:"🔔", name:"Essai alarme incendie", echeance:"Mar 2025", jours:+20, statut:"warn" },
   { ico:"📋", name:"Registre de sécurité", echeance:"Jan 2026", jours:+260, statut:"ok" },
 ];
-
 const DEMO_INTERVENTIONS = [
   { ico:"✅", name:"Vérification annuelle extincteurs", date:"12 Nov 2024", tech:"Laurent M.", adresse:"Marseille 13008", statut:"Clôturée" },
   { ico:"✅", name:"Pose BAES supplémentaire", date:"03 Sep 2024", tech:"Thomas R.", adresse:"Marseille 13008", statut:"Clôturée" },
@@ -1042,25 +1047,13 @@ function renderClientDemoHome() {
         <div class="main-line">Documents, rapports, registre et abonnements regroupés ici.</div>
       </div>
     </div>
-        <div class="action-grid">
-      <button class="action" onclick="clientPage('documents')">
-        <div class="action-ico">📄</div><span>Documents</span>
-      </button>
-      <button class="action" onclick="clientPage('rapports')">
-        <div class="action-ico">📋</div><span>Rapports</span>
-      </button>
-      <button class="action" onclick="clientPage('registre')">
-        <div class="action-ico">📚</div><span>Registre</span>
-      </button>
-      <button class="action" onclick="clientPage('abonnements')">
-        <div class="action-ico">💳</div><span>Abonnements</span>
-      </button>
-      <button class="action" onclick="clientPage('echeances')">
-        <div class="action-ico">📅</div><span>Échéances</span>
-      </button>
-      <button class="action" onclick="clientPage('rendezvous')">
-        <div class="action-ico">🕒</div><span>Rendez-vous</span>
-      </button>
+    <div class="action-grid">
+      <button class="action" onclick="clientPage('documents')"><div class="action-ico">📄</div><span>Documents</span></button>
+      <button class="action" onclick="clientPage('rapports')"><div class="action-ico">📋</div><span>Rapports</span></button>
+      <button class="action" onclick="clientPage('registre')"><div class="action-ico">📚</div><span>Registre</span></button>
+      <button class="action" onclick="clientPage('abonnements')"><div class="action-ico">💳</div><span>Abonnements</span></button>
+      <button class="action" onclick="clientPage('echeances')"><div class="action-ico">📅</div><span>Échéances</span></button>
+      <button class="action" onclick="clientPage('rendezvous')"><div class="action-ico">🕒</div><span>Rendez-vous</span></button>
     </div>
     <div class="bottom-actions">
       <button class="danger-btn" onclick="logout()">Déconnexion</button>
@@ -1070,337 +1063,67 @@ function renderClientDemoHome() {
 function clientPage(page) {
   hideMainBars();
   const c = document.getElementById("content");
-
   if (page === "documents") {
     c.innerHTML = `
-      <div class="detail-top">
-        <div class="back" onclick="renderClientDemoHome()">Retour</div>
-        <div class="detail-title">Documents</div>
-        <div class="detail-sub">${CLIENT_NAME}</div>
-      </div>
-      <div class="slabel">${DEMO_DOCUMENTS.length} document${DEMO_DOCUMENTS.length>1?"s":""}</div>
-      ${DEMO_DOCUMENTS.map(d => `
-        <div class="card blue" onclick="toast('Ouverture du document…')">
-          <div class="icon">${d.ico}</div>
-          <div class="info">
-            <div class="cname">${d.name}</div>
-            <div class="cdate">${d.date} · ${d.type}</div>
-          </div>
-          <div class="chev">↓</div>
-        </div>
-      `).join("")}`;
+      <div class="detail-top"><div class="back" onclick="renderClientDemoHome()">Retour</div><div class="detail-title">Documents</div><div class="detail-sub">${CLIENT_NAME}</div></div>
+      <div class="slabel">${DEMO_DOCUMENTS.length} documents</div>
+      ${DEMO_DOCUMENTS.map(d => `<div class="card blue" onclick="toast('📄 Ouverture de ${safe(d.name)}…')"><div class="icon">${d.ico}</div><div class="info"><div class="cname">${d.name}</div><div class="cdate">${d.date} · ${d.type}</div></div><div class="chev">↓</div></div>`).join("")}`;
   }
-
   else if (page === "rapports") {
     c.innerHTML = `
-      <div class="detail-top">
-        <div class="back" onclick="renderClientDemoHome()">Retour</div>
-        <div class="detail-title">Rapports</div>
-        <div class="detail-sub">${CLIENT_NAME}</div>
-      </div>
-      <div class="slabel">${DEMO_RAPPORTS.length} rapport${DEMO_RAPPORTS.length>1?"s":""}</div>
-      ${DEMO_RAPPORTS.map(r => `
-        <div class="card ${r.statut === 'ok' ? 'ok' : 'orange'}" onclick="toast('Ouverture du rapport…')">
-          <div class="icon">${r.ico}</div>
-          <div class="info">
-            <div class="cname">${r.name}</div>
-            <div class="cdate">${r.date} · ${r.tech}</div>
-          </div>
-          <div class="chev">↓</div>
-        </div>
-      `).join("")}
+      <div class="detail-top"><div class="back" onclick="renderClientDemoHome()">Retour</div><div class="detail-title">Rapports</div><div class="detail-sub">${CLIENT_NAME}</div></div>
+      <div class="slabel">${DEMO_RAPPORTS.length} rapports</div>
+      ${DEMO_RAPPORTS.map(r => `<div class="card ${r.statut==='ok'?'ok':'orange'}" onclick="toast('📋 Ouverture du rapport…')"><div class="icon">${r.ico}</div><div class="info"><div class="cname">${r.name}</div><div class="cdate">${r.date} · ${r.tech}</div></div><div class="chev">↓</div></div>`).join("")}
       <div class="slabel">Suivi des interventions</div>
-      ${DEMO_INTERVENTIONS.map(i => `
-        <div class="card ok">
-          <div class="icon">${i.ico}</div>
-          <div class="info">
-            <div class="cname">${i.name}</div>
-            <div class="cdate">${i.date} · ${i.tech}</div>
-            <div class="cdate">${i.adresse}</div>
-          </div>
-          <span class="reg-pill ok">${i.statut}</span>
-        </div>
-      `).join("")}`;
+      ${DEMO_INTERVENTIONS.map(i => `<div class="card ok"><div class="icon">${i.ico}</div><div class="info"><div class="cname">${i.name}</div><div class="cdate">${i.date} · ${i.tech}</div><div class="cdate">${i.adresse}</div></div><span class="reg-pill ok">${i.statut}</span></div>`).join("")}`;
   }
-
   else if (page === "registre") {
     c.innerHTML = `
-      <div class="detail-top">
-        <div class="back" onclick="renderClientDemoHome()">Retour</div>
-        <div class="detail-title">Registre</div>
-        <div class="detail-sub">Registre dématérialisé · ${CLIENT_NAME}</div>
-      </div>
+      <div class="detail-top"><div class="back" onclick="renderClientDemoHome()">Retour</div><div class="detail-title">Registre</div><div class="detail-sub">Registre dématérialisé · ${CLIENT_NAME}</div></div>
       <div class="slabel">${DEMO_REGISTRE.length} équipements</div>
-      ${DEMO_REGISTRE.map(r => `
-        <div class="reg-row">
-          <div class="reg-ico">${r.ico}</div>
-          <div class="reg-info">
-            <div class="reg-name">${r.name}</div>
-            <div class="reg-meta">N° ${r.serie} · Prochaine vérif. ${r.verif}</div>
-          </div>
-          <span class="reg-pill ${r.statut}">${r.statut === 'ok' ? 'À jour' : r.statut === 'warn' ? 'Proche' : 'Dépassé'}</span>
-        </div>
-      `).join("")}
-      <div style="margin-top:8px">
-        <button class="secondary-btn" onclick="toast('Téléchargement du registre PDF…')">📥 Télécharger le registre PDF</button>
-      </div>`;
+      ${DEMO_REGISTRE.map(r => `<div class="reg-row"><div class="reg-ico">${r.ico}</div><div class="reg-info"><div class="reg-name">${r.name}</div><div class="reg-meta">N° ${r.serie} · Prochaine vérif. ${r.verif}</div></div><span class="reg-pill ${r.statut}">${r.statut==='ok'?'À jour':r.statut==='warn'?'Proche':'Dépassé'}</span></div>`).join("")}
+      <div style="margin-top:8px"><button class="secondary-btn" onclick="toast('📥 Téléchargement du registre PDF…')">📥 Télécharger le registre PDF</button></div>`;
   }
-
   else if (page === "echeances") {
     c.innerHTML = `
-      <div class="detail-top">
-        <div class="back" onclick="renderClientDemoHome()">Retour</div>
-        <div class="detail-title">Échéances</div>
-        <div class="detail-sub">Suivi des vérifications · ${CLIENT_NAME}</div>
-      </div>
+      <div class="detail-top"><div class="back" onclick="renderClientDemoHome()">Retour</div><div class="detail-title">Échéances</div><div class="detail-sub">Suivi des vérifications · ${CLIENT_NAME}</div></div>
       <div class="slabel">Vérifications réglementaires</div>
-      ${DEMO_ECHEANCES.map(e => `
-        <div class="card ${e.statut === 'ok' ? 'ok' : e.statut === 'warn' ? 'orange' : 'red'}">
-          <div class="icon">${e.ico}</div>
-          <div class="info">
-            <div class="cname">${e.name}</div>
-            <div class="cdate">Échéance : ${e.echeance}</div>
-            <div class="cdate">${e.jours > 0 ? `Dans ${e.jours} jours` : `Dépassée de ${Math.abs(e.jours)} jours`}</div>
-          </div>
-          <span class="reg-pill ${e.statut}">${e.statut === 'ok' ? 'À jour' : e.statut === 'warn' ? 'Bientôt' : 'Urgent'}</span>
-        </div>
-      `).join("")}
-      <div style="margin-top:8px">
-        <button class="primary-btn" onclick="clientPage('rendezvous')">📅 Prendre rendez-vous</button>
-      </div>`;
+      ${DEMO_ECHEANCES.map(e => `<div class="card ${e.statut==='ok'?'ok':e.statut==='warn'?'orange':'red'}"><div class="icon">${e.ico}</div><div class="info"><div class="cname">${e.name}</div><div class="cdate">Échéance : ${e.echeance}</div><div class="cdate">${e.jours>0?`Dans ${e.jours} jours`:`Dépassée de ${Math.abs(e.jours)} jours`}</div></div><span class="reg-pill ${e.statut}">${e.statut==='ok'?'À jour':e.statut==='warn'?'Bientôt':'Urgent'}</span></div>`).join("")}
+      <div style="margin-top:8px"><button class="primary-btn" onclick="clientPage('rendezvous')">📅 Prendre rendez-vous</button></div>`;
   }
-
   else if (page === "abonnements") {
     c.innerHTML = `
-      <div class="detail-top">
-        <div class="back" onclick="renderClientDemoHome()">Retour</div>
-        <div class="detail-title">Abonnements</div>
-        <div class="detail-sub">${CLIENT_NAME}</div>
-      </div>
+      <div class="detail-top"><div class="back" onclick="renderClientDemoHome()">Retour</div><div class="detail-title">Abonnements</div><div class="detail-sub">${CLIENT_NAME}</div></div>
       <div class="slabel">Choisissez votre formule</div>
-
       <div class="abon-card" onclick="selectAbon('T1', this)">
-        <div class="abon-header">
-          <div class="abon-title">Formule T1</div>
-        </div>
+        <div class="abon-header"><div class="abon-title">Formule T1</div></div>
         <div class="abon-price">8€ <span>/ mois</span></div>
         <div class="abon-desc">Pour les petits locaux avec un seul point d'extinction.</div>
-        <div class="abon-features">
-          <div class="abon-feat">1 extincteur inclus</div>
-          <div class="abon-feat">Vérification annuelle</div>
-          <div class="abon-feat">Rapport d'intervention</div>
-          <div class="abon-feat">Accès espace client</div>
-        </div>
+        <div class="abon-features"><div class="abon-feat">1 extincteur inclus</div><div class="abon-feat">Vérification annuelle</div><div class="abon-feat">Rapport d'intervention</div><div class="abon-feat">Accès espace client</div></div>
       </div>
-
       <div class="abon-card popular" onclick="selectAbon('T2', this)">
-        <div class="abon-header">
-          <div class="abon-title">Formule T2</div>
-          <div class="abon-badge">⭐ POPULAIRE</div>
-        </div>
+        <div class="abon-header"><div class="abon-title">Formule T2</div><div class="abon-badge">⭐ POPULAIRE</div></div>
         <div class="abon-price">15€ <span>/ mois</span></div>
         <div class="abon-desc">Pour les locaux avec plusieurs zones à sécuriser.</div>
-        <div class="abon-features">
-          <div class="abon-feat">2 extincteurs inclus</div>
-          <div class="abon-feat">Vérification annuelle</div>
-          <div class="abon-feat">Rapport d'intervention</div>
-          <div class="abon-feat">Accès espace client</div>
-          <div class="abon-feat">Rappels automatiques</div>
-        </div>
+        <div class="abon-features"><div class="abon-feat">2 extincteurs inclus</div><div class="abon-feat">Vérification annuelle</div><div class="abon-feat">Rapport d'intervention</div><div class="abon-feat">Accès espace client</div><div class="abon-feat">Rappels automatiques</div></div>
       </div>
-
       <div class="bottom-actions" id="abonActions" style="display:none">
         <button class="success-btn" onclick="goToPayment()">💳 Souscrire et payer en ligne</button>
       </div>`;
   }
-
   else if (page === "rendezvous") {
     c.innerHTML = `
-      <div class="detail-top">
-        <div class="back" onclick="renderClientDemoHome()">Retour</div>
-        <div class="detail-title">Rendez-vous</div>
-        <div class="detail-sub">Prise de RDV · ${CLIENT_NAME}</div>
-      </div>
+      <div class="detail-top"><div class="back" onclick="renderClientDemoHome()">Retour</div><div class="detail-title">Rendez-vous</div><div class="detail-sub">Prise de RDV · ${CLIENT_NAME}</div></div>
       <div class="main-intervention" style="margin-bottom:14px">
         <div class="icon">📅</div>
-        <div class="info">
-          <div class="main-title">Planifier une intervention</div>
-          <div class="main-line">Choisissez le type d'intervention et vos disponibilités.</div>
-        </div>
+        <div class="info"><div class="main-title">Planifier une intervention</div><div class="main-line">Choisissez le type d'intervention et vos disponibilités.</div></div>
       </div>
       <div class="slabel">Type d'intervention</div>
       <select class="rdv-select" id="rdvType">
         <option value="">-- Sélectionner --</option>
-        <option>Vérification extincteurs</option>
-        <option>Contrôle BAES</option>
-        <option>Essai alarme incendie</option>
-        <option>Maintenance générale</option>
-        <option>Pose de matériel</option>
-        <option>Autre</option>
+        <option>Vérification extincteurs</option><option>Contrôle BAES</option>
+        <option>Essai alarme incendie</option><option>Maintenance générale</option>
+        <option>Pose de matériel</option><option>Autre</option>
       </select>
       <div class="slabel">Date souhaitée</div>
-      <input class="rdv-input" type="date" id="rdvDate">
-      <div class="slabel">Créneau préféré</div>
-      <select class="rdv-select" id="rdvCreneau">
-        <option value="">-- Sélectionner --</option>
-        <option>Matin (8h–12h)</option>
-        <option>Après-midi (13h–17h)</option>
-        <option>Toute la journée</option>
-      </select>
-      <div class="slabel">Commentaire (optionnel)</div>
-      <textarea placeholder="Précisions sur l'accès, le site, le matériel…" id="rdvComment" style="min-height:80px"></textarea>
-      <div class="bottom-actions">
-        <button class="primary-btn" onclick="submitRdv()">📅 Envoyer la demande de RDV</button>
-      </div>`;
-
-    const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
-    document.getElementById("rdvDate").value = tomorrow.toISOString().split("T")[0];
-  }
-}
-
-function selectAbon(type, el) {
-  selectedAbon = type;
-  document.querySelectorAll(".abon-card").forEach(c => c.style.borderColor = "transparent");
-  el.style.borderColor = "var(--accent)";
-  document.getElementById("abonActions").style.display = "flex";
-}
-
-function goToPayment() {
-  if (!selectedAbon) { toast("Veuillez choisir une formule"); return; }
-  hideMainBars();
-  const price = selectedAbon === "T1" ? "8€/mois" : "15€/mois";
-  const mats   = selectedAbon === "T1" ? "1 extincteur" : "2 extincteurs";
-  document.getElementById("content").innerHTML = `
-    <div class="detail-top">
-      <div class="back" onclick="clientPage('abonnements')">Retour</div>
-      <div class="detail-title">Paiement</div>
-      <div class="detail-sub">Formule ${selectedAbon} · ${price}</div>
-    </div>
-    <div class="main-intervention">
-      <div class="icon">💳</div>
-      <div class="info">
-        <div class="main-title">Formule ${selectedAbon}</div>
-        <div class="main-line">${mats} inclus</div>
-        <div class="main-line main-date">${price}</div>
-      </div>
-    </div>
-    <div class="slabel">Informations de paiement</div>
-    <input class="rdv-input" placeholder="Numéro de carte" value="•••• •••• •••• 4242">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
-      <input class="rdv-input" style="margin:0" placeholder="MM/AA" value="12/27">
-      <input class="rdv-input" style="margin:0" placeholder="CVC" value="•••">
-    </div>
-    <input class="rdv-input" placeholder="Titulaire de la carte" value="Action Incendie">
-    <div class="bottom-actions" style="margin-top:8px">
-      <button class="success-btn" onclick="confirmPayment()">🔒 Confirmer le paiement · ${price}</button>
-    </div>`;
-}
-
-function confirmPayment() {
-  hideMainBars();
-  document.getElementById("content").innerHTML = `
-    <div class="confirm-screen">
-      <span class="confirm-ico">🎉</span>
-      <div class="confirm-title">Abonnement activé !</div>
-      <div class="confirm-sub">
-        Votre formule ${selectedAbon} est active.<br>
-        Une intervention de pose sera planifiée automatiquement dans votre planning.
-      </div>
-      <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
-        <button class="primary-btn" onclick="clientPage('rendezvous')">📅 Planifier la pose maintenant</button>
-        <button class="secondary-btn" onclick="renderClientDemoHome()">Retour à l'accueil</button>
-      </div>
-    </div>`;
-}
-
-function submitRdv() {
-  const type    = document.getElementById("rdvType").value;
-  const date    = document.getElementById("rdvDate").value;
-  const creneau = document.getElementById("rdvCreneau").value;
-  if (!type || !date || !creneau) { toast("Veuillez remplir tous les champs"); return; }
-  const dateF = new Date(date).toLocaleDateString("fr-FR", { weekday:"long", day:"numeric", month:"long" });
-  hideMainBars();
-  document.getElementById("content").innerHTML = `
-    <div class="confirm-screen">
-      <span class="confirm-ico">✅</span>
-      <div class="confirm-title">Demande envoyée !</div>
-      <div class="confirm-sub">
-        Votre demande de RDV pour<br>
-        <strong>${type}</strong><br>
-        le <strong>${dateF}</strong> (${creneau})<br>
-        a bien été transmise.<br><br>
-        L'intervention sera ajoutée au planning du technicien dès confirmation.
-      </div>
-      <div style="margin-top:20px">
-        <button class="secondary-btn" onclick="renderClientDemoHome()">Retour à l'accueil</button>
-      </div>
-    </div>`;
-}
-
-// ─── SHARED UTILS ────────────────────────────────────────────────────────────
-function showMainBars() { document.getElementById("mainHeader").style.display="flex"; document.getElementById("tabs").style.display="flex"; }
-function hideMainBars() { document.getElementById("mainHeader").style.display="none"; document.getElementById("tabs").style.display="none"; }
-function showLoader() { document.getElementById("content").innerHTML=`
-  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:20px">
-    <img src="IMG_5662.webp" style="height:64px;opacity:0.18;object-fit:contain">
-    <div class="spinner"></div>
-  </div>`; }
-
-function empty(ico,title,sub="") { return `<div class="empty"><div class="empty-ico">${ico}</div><div class="empty-title">${title}</div><div class="empty-sub">${sub}</div></div>`; }
-
-let tt;
-function toast(msg) {
-  const el = document.getElementById("toast");
-  el.textContent = msg;
-  el.classList.add("show");
-  clearTimeout(tt);
-  tt = setTimeout(() => el.classList.remove("show"), 2300);
-}
-
-function callClient(phone) { window.location.href = "tel:" + phone; }
-function openMaps(adresse) { window.open("https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(adresse),"_blank"); }
-function updateBadge() {
-  const today = midnight(new Date());
-  const n = items.filter(i => midnight(i.date) < today && !reportedIds[i.id]).length;
-  const b = document.getElementById("badge");
-  b.textContent = n + " en retard";
-  b.classList.toggle("on", n > 0);
-}
-function midnight(d) { const x=new Date(d); x.setHours(0,0,0,0); return x; }
-function fmtDate(str) { const d=new Date(str); const s=d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}); return s.charAt(0).toUpperCase()+s.slice(1); }
-function fmtHeure(str) { return new Date(str).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}); }
-function getAdresseSansCP(adresse) { return String(adresse||"").replace(/\s+\d{5}\s+.+$/i,""); }
-function getCodePostalVille(adresse) { const m=String(adresse||"").match(/(\d{5})\s+(.+)$/); return m?`${m[1]} ${m[2]}`:""; }
-function escapeJs(v) { return String(v||"").replace(/\\/g,"\\\\").replace(/'/g,"\\'").replace(/"/g,"&quot;"); }
-function safe(v) { return String(v||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-
-// ─── LOGIN ────────────────────────────────────────────────────────────────────
-function loginDemo() {
-  const email    = document.getElementById("loginEmail").value.trim().toLowerCase();
-  const password = document.getElementById("loginPassword").value.trim();
-  if (email === "tech@demo.fr" && password === "1234") { localStorage.setItem("demoRole","technicien"); startApp("technicien"); return; }
-  if (email === "client@demo.fr" && password === "1234") { localStorage.setItem("demoRole","client"); startApp("client"); return; }
-  toast("Identifiants incorrects");
-}
-
-function startApp(role) {
-  currentRole = role;
-  document.getElementById("loginScreen").style.display = "none";
-  document.getElementById("app").style.display = "flex";
-  if (role === "technicien") { showMainBars(); loadData(); }
-  if (role === "client") { hideMainBars(); renderClientDemoHome(); }
-}
-
-function logout() {
-  localStorage.removeItem("demoRole");
-  selectedItem = null;
-  currentRole = null;
-  document.getElementById("app").style.display = "none";
-  document.getElementById("loginScreen").style.display = "flex";
-}
-
-const savedRole = localStorage.getItem("demoRole");
-if (savedRole) startApp(savedRole);
-</script>
-</body>
-</html>
+      <input class="rdv-in
