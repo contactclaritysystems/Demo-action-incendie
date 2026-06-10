@@ -1126,4 +1126,132 @@ function clientPage(page) {
         <option>Pose de matériel</option><option>Autre</option>
       </select>
       <div class="slabel">Date souhaitée</div>
-      <input class="rdv-in
+      <input class="rdv-input" type="date" id="rdvDate">
+      <div class="slabel">Créneau préféré</div>
+      <select class="rdv-select" id="rdvCreneau">
+        <option value="">-- Sélectionner --</option>
+        <option>Matin (8h–12h)</option><option>Après-midi (13h–17h)</option><option>Toute la journée</option>
+      </select>
+      <div class="slabel">Commentaire (optionnel)</div>
+      <textarea placeholder="Précisions sur l'accès, le site, le matériel…" id="rdvComment" style="min-height:80px"></textarea>
+      <div class="bottom-actions"><button class="primary-btn" onclick="submitRdv()">📅 Envoyer la demande de RDV</button></div>`;
+    const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
+    document.getElementById("rdvDate").value = tomorrow.toISOString().split("T")[0];
+  }
+}
+
+function selectAbon(type, el) {
+  selectedAbon = type;
+  document.querySelectorAll(".abon-card").forEach(c => c.style.borderColor = "transparent");
+  el.style.borderColor = "var(--accent)";
+  document.getElementById("abonActions").style.display = "flex";
+}
+
+function goToPayment() {
+  if (!selectedAbon) { toast("Veuillez choisir une formule"); return; }
+  hideMainBars();
+  const price = selectedAbon === "T1" ? "8€/mois" : "15€/mois";
+  const mats = selectedAbon === "T1" ? "1 extincteur" : "2 extincteurs";
+  document.getElementById("content").innerHTML = `
+    <div class="detail-top"><div class="back" onclick="clientPage('abonnements')">Retour</div><div class="detail-title">Paiement</div><div class="detail-sub">Formule ${selectedAbon} · ${price}</div></div>
+    <div class="main-intervention"><div class="icon">💳</div><div class="info"><div class="main-title">Formule ${selectedAbon}</div><div class="main-line">${mats} inclus</div><div class="main-line main-date">${price}</div></div></div>
+    <div class="slabel">Informations de paiement</div>
+    <input class="rdv-input" placeholder="Numéro de carte" value="•••• •••• •••• 4242">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+      <input class="rdv-input" style="margin:0" placeholder="MM/AA" value="12/27">
+      <input class="rdv-input" style="margin:0" placeholder="CVC" value="•••">
+    </div>
+    <input class="rdv-input" placeholder="Titulaire de la carte" value="Action Incendie">
+    <div class="bottom-actions" style="margin-top:8px">
+      <button class="success-btn" onclick="confirmPayment()">🔒 Confirmer le paiement · ${price}</button>
+    </div>`;
+}
+
+function confirmPayment() {
+  hideMainBars();
+  document.getElementById("content").innerHTML = `
+    <div class="confirm-screen">
+      <span class="confirm-ico">🎉</span>
+      <div class="confirm-title">Abonnement activé !</div>
+      <div class="confirm-sub">Votre formule ${selectedAbon} est active.<br>Une intervention de pose sera planifiée automatiquement.</div>
+      <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
+        <button class="primary-btn" onclick="clientPage('rendezvous')">📅 Planifier la pose maintenant</button>
+        <button class="secondary-btn" onclick="renderClientDemoHome()">Retour à l'accueil</button>
+      </div>
+    </div>`;
+}
+
+function submitRdv() {
+  const type = document.getElementById("rdvType").value;
+  const date = document.getElementById("rdvDate").value;
+  const creneau = document.getElementById("rdvCreneau").value;
+  if (!type || !date || !creneau) { toast("Veuillez remplir tous les champs"); return; }
+  const dateF = new Date(date).toLocaleDateString("fr-FR", { weekday:"long", day:"numeric", month:"long" });
+  hideMainBars();
+  document.getElementById("content").innerHTML = `
+    <div class="confirm-screen">
+      <span class="confirm-ico">✅</span>
+      <div class="confirm-title">Demande envoyée !</div>
+      <div class="confirm-sub">Votre demande de RDV pour<br><strong>${type}</strong><br>le <strong>${dateF}</strong> (${creneau})<br>a bien été transmise.<br><br>L'intervention sera ajoutée au planning dès confirmation.</div>
+      <div style="margin-top:20px"><button class="secondary-btn" onclick="renderClientDemoHome()">Retour à l'accueil</button></div>
+    </div>`;
+}
+
+// ─── UTILS ────────────────────────────────────────────────────────────────────
+function showMainBars() { document.getElementById("mainHeader").style.display="flex"; document.getElementById("tabs").style.display="flex"; }
+function hideMainBars() { document.getElementById("mainHeader").style.display="none"; document.getElementById("tabs").style.display="none"; }
+function showLoader() { document.getElementById("content").innerHTML=`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:20px"><img src="IMG_5662.webp" style="height:64px;opacity:0.18;object-fit:contain"><div class="spinner"></div></div>`; }
+function empty(ico,title,sub="") { return `<div class="empty"><div class="empty-ico">${ico}</div><div class="empty-title">${title}</div><div class="empty-sub">${sub}</div></div>`; }
+
+let tt;
+function toast(msg) {
+  const el = document.getElementById("toast");
+  el.textContent = msg; el.classList.add("show");
+  clearTimeout(tt); tt = setTimeout(() => el.classList.remove("show"), 2300);
+}
+
+function callClient(phone) { window.location.href = "tel:" + phone; }
+function openMaps(adresse) { window.open("https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(adresse),"_blank"); }
+function updateBadge() {
+  const today = midnight(new Date());
+  const n = items.filter(i => midnight(i.date) < today && !reportedIds[i.id]).length;
+  const b = document.getElementById("badge");
+  b.textContent = n + " en retard";
+  b.classList.toggle("on", n > 0);
+}
+function midnight(d) { const x=new Date(d); x.setHours(0,0,0,0); return x; }
+function fmtDate(str) { const d=new Date(str); const s=d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}); return s.charAt(0).toUpperCase()+s.slice(1); }
+function fmtHeure(str) { return new Date(str).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}); }
+function getAdresseSansCP(adresse) { return String(adresse||"").replace(/\s+\d{5}\s+.+$/i,""); }
+function getCodePostalVille(adresse) { const m=String(adresse||"").match(/(\d{5})\s+(.+)$/); return m?`${m[1]} ${m[2]}`:""; }
+function escapeJs(v) { return String(v||"").replace(/\\/g,"\\\\").replace(/'/g,"\\'").replace(/"/g,"&quot;"); }
+function safe(v) { return String(v||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function loginDemo() {
+  const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+  const password = document.getElementById("loginPassword").value.trim();
+  if (email === "tech@demo.fr" && password === "1234") { localStorage.setItem("demoRole","technicien"); startApp("technicien"); return; }
+  if (email === "client@demo.fr" && password === "1234") { localStorage.setItem("demoRole","client"); startApp("client"); return; }
+  toast("Identifiants incorrects");
+}
+
+function startApp(role) {
+  currentRole = role;
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("app").style.display = "flex";
+  if (role === "technicien") { showMainBars(); loadData(); }
+  if (role === "client") { hideMainBars(); renderClientDemoHome(); }
+}
+
+function logout() {
+  localStorage.removeItem("demoRole");
+  selectedItem = null; currentRole = null;
+  document.getElementById("app").style.display = "none";
+  document.getElementById("loginScreen").style.display = "flex";
+}
+
+const savedRole = localStorage.getItem("demoRole");
+if (savedRole) startApp(savedRole);
+</script>
+</body>
+</html>
